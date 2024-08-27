@@ -1,4 +1,5 @@
 import 'package:dalelapp/core/routes/app_routes.dart';
+import 'package:dalelapp/core/utils/app_colors.dart';
 import 'package:dalelapp/features/splash/presentation/view/splash_sreen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +14,9 @@ class DalelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.offWhite
+      ),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
 
