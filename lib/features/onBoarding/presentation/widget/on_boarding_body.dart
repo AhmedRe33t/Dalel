@@ -5,7 +5,7 @@ import 'package:dalelapp/features/onBoarding/presentation/widget/custom_smooth_p
 import 'package:flutter/material.dart';
 
 class onBoarding extends StatelessWidget {
-   onBoarding({
+  const onBoarding({
     super.key,required this.controller, this.onPageChanged
   });
 

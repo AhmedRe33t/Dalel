@@ -1,3 +1,4 @@
+import 'package:dalelapp/core/databases/cash/cash_helper.dart';
 import 'package:dalelapp/core/function/navigation.dart';
 import 'package:dalelapp/core/utils/app_strings.dart';
 import 'package:dalelapp/core/utils/app_text_styles.dart';
@@ -13,8 +14,16 @@ class SplashSreen extends StatefulWidget {
 
 class _SplashSreenState extends State<SplashSreen> {
   @override
+
+
   void initState() {
-    delayNavigation(context);
+   bool onBoardingKey=CashHelper().getData(key: 'onBoardingKey')??false;
+    if(onBoardingKey==true){
+          delayNavigation(context,path: '/signUp');
+    }else{
+           delayNavigation(context,path: '/onBoarding');
+    }
+   
     super.initState();
   }
 
@@ -29,8 +38,8 @@ class _SplashSreenState extends State<SplashSreen> {
     );
   }
 }
-  void delayNavigation(context) {
+  void delayNavigation(context,{required String path}) {
      Future.delayed(const Duration(seconds: 2),(){
-       custemReplacementNvigator(context, '/onBoarding');
+       custemReplacementNvigator(context, path);
     });
   }

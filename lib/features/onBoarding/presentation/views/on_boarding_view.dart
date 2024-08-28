@@ -1,14 +1,11 @@
 
+import 'package:dalelapp/core/databases/cash/cash_helper.dart';
 import 'package:dalelapp/core/function/navigation.dart';
-import 'package:dalelapp/core/utils/app_strings.dart';
-import 'package:dalelapp/core/utils/app_text_styles.dart';
-import 'package:dalelapp/core/widgets/custom_botton.dart';
-import 'package:dalelapp/features/onBoarding/data/models/on_boarding_model.dart';
+
 import 'package:dalelapp/features/onBoarding/presentation/widget/custom_nav_bar.dart';
 import 'package:dalelapp/features/onBoarding/presentation/widget/get_buttons.dart';
 import 'package:dalelapp/features/onBoarding/presentation/widget/on_boarding_body.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -32,6 +29,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           children: [
            const SizedBox(height: 40,),
             CustomNavBar(onTap: () {
+              CashHelper().saveData(key: 'onBoardingKey',value: true);
             custemReplacementNvigator(context,'/signUp');
           },),
             onBoarding(

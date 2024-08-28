@@ -1,10 +1,13 @@
+import 'package:dalelapp/core/databases/cash/cash_helper.dart';
 import 'package:dalelapp/core/routes/app_routes.dart';
 import 'package:dalelapp/core/utils/app_colors.dart';
 import 'package:dalelapp/features/splash/presentation/view/splash_sreen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await CashHelper().init();
   runApp(const DalelApp());
 }
 
