@@ -6,16 +6,19 @@ import 'package:flutter/material.dart';
 
 class onBoarding extends StatelessWidget {
    onBoarding({
-    super.key,
+    super.key,required this.controller, this.onPageChanged
   });
- final PageController _controller=PageController();
+
+ final PageController controller;
+ final void Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 500,
       child: PageView.builder(
+        onPageChanged:onPageChanged ,
         physics:const BouncingScrollPhysics(),
-        controller: _controller,
+        controller: controller,
         itemCount: onBoardingData.length,
         itemBuilder:(context, index) {
         return Column(
@@ -30,7 +33,7 @@ class onBoarding extends StatelessWidget {
             
            ),
         const SizedBox(height: 24,),
-            CustomSmoothIndecator(controller:_controller),
+            CustomSmoothIndecator(controller:controller),
            const SizedBox(height: 32,),
             Text(onBoardingData[index].title,style: CustomTextStyles.poppins500style24.copyWith(fontWeight: FontWeight.bold,
             ),
